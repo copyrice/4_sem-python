@@ -25,8 +25,7 @@ def ascending_list_2(a):
 def card_number_3():
     s = input()
     # s = '1234567890123456'
-    a = s[4:len(s)-4]
-    s = s.replace(a, "*" * len(a))
+    s = s[:4] + '*' * 8 + s[-4: ]
     print(s)
 
 
@@ -166,6 +165,7 @@ def get_pages_14():
 
 def pre_process(a_):
     def decorator(func):
+        s = ''
         def inner(s):
             return func(list(filter(lambda x: x == x-a_*s[s.index(x)-1], s)))
         return inner
